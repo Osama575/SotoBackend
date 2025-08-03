@@ -1,6 +1,48 @@
 @SotoGeneratorApi_HostAddress = http://localhost:5271
 
-GET {{SotoGeneratorApi_HostAddress}}/weatherforecast/
-Accept: application/json
+### Generate SOTO with default 30-day support term (no supportTerm field)
+POST {{SotoGeneratorApi_HostAddress}}/soto/generate
+Content-Type: application/json
 
-###
+{
+  "reference": "S00075",
+  "customer": "Default Customer Ltd",
+  "customerCompanyNumber": "11111111",
+  "customerRepresentative": "Default User",
+  "customerEmail": "default@customer.com",
+  "supplierRepresentative": "Default Supplier",
+  "supplierEmail": "default@ijyi.com",
+  "problem": "Need a simple web application for data management"
+}
+
+### Generate SOTO with 28-day support term
+POST {{SotoGeneratorApi_HostAddress}}/soto/generate
+Content-Type: application/json
+
+{
+  "reference": "S00076",
+  "customer": "Test Customer Ltd",
+  "customerCompanyNumber": "12345678",
+  "customerRepresentative": "John Doe",
+  "customerEmail": "john.doe@testcustomer.com",
+  "supplierRepresentative": "Jane Smith",
+  "supplierEmail": "jane.smith@ijyi.com",
+  "problem": "Need to develop a custom web application for managing inventory and sales",
+  "supportTerm": 28
+}
+
+### Generate SOTO with 30-day support term
+POST {{SotoGeneratorApi_HostAddress}}/soto/generate
+Content-Type: application/json
+
+{
+  "reference": "S00077",
+  "customer": "Another Customer Ltd",
+  "customerCompanyNumber": "87654321",
+  "customerRepresentative": "Alice Johnson",
+  "customerEmail": "alice.johnson@anothercustomer.com",
+  "supplierRepresentative": "Bob Wilson",
+  "supplierEmail": "bob.wilson@ijyi.com",
+  "problem": "Require a mobile app for field service management",
+  "supportTerm": 30
+}

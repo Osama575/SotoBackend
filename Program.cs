@@ -40,7 +40,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// 3) Exception handler (unchanged)
+// 3) Exception handler 
 app.UseExceptionHandler(errorApp =>
 {
     errorApp.Run(async context =>
@@ -80,7 +80,6 @@ if (app.Environment.IsDevelopment())
 app.UseCors("LocalDev");
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

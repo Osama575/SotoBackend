@@ -20,6 +20,8 @@ namespace SotoGeneratorAPI.Models
         public required string SupplierEmail { get; set; }
         public string GovernedBy { get; set; } = "Terms202305.28.1 (attached)";
         public required string Problem { get; set; }
+        public int SupportTerm { get; set; } = 30; // Default to 30 days, can be 28 or 30
+        public string SupportContract { get; set; } = ""; // Full contract text based on SupportTerm
         public required List<string> CustomerResponsibilities { get; set; }
         public required List<TargetOutcomeResponse> TargetOutcomes { get; set; }
     }

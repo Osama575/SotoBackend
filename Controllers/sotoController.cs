@@ -23,6 +23,11 @@ namespace SotoGeneratorAPI.Controllers
         [HttpPost("generate")]
         public async Task<IActionResult> GenerateSoto([FromBody] SotoRequest request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             var response = await _service.GenerateSotoAsync(request);
             return Ok(response);
         }
